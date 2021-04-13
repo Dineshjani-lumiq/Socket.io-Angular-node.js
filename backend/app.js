@@ -1,18 +1,19 @@
 var express = require('express');
 var socket = require('socket.io');
-var app=express();
+var app = express();
 const server = require('http').createServer();
 
 
 const io = require("socket.io")(server, {
-  cors: {
-    origin: "http://localhost:4200",
-  
-    transports: ['websocket', 'polling'],
-    credentials: true,
-    allowEIO3: true ,
-    serveClient: true
-  }
+    cors: {
+        origin: "http://localhost:4200",
+        transports: ['websocket', 'polling'],
+
+        credentials: true,
+        serveClient: true
+    },
+            allowEIO3: true,
+
 });
 
 
@@ -24,7 +25,7 @@ const io = require("socket.io")(server, {
 app.use(function (req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Credentials", true);
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT ,DELETE");
     res.header(
         "Access-Control-Allow-Headers",

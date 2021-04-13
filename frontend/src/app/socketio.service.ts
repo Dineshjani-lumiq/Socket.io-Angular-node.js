@@ -7,10 +7,10 @@ import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class WebSocketService {
-    socket: SocketIOClient.Socket;
+    socket: any;
 
     constructor() {
-        this.socket = io.connect('http://localhost:3009');
+        this.socket = io('http://localhost:3009');
     }
 
     listen(eventname: string) : Observable<any> {
